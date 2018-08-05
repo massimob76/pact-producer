@@ -1,0 +1,27 @@
+
+plugins {
+    id 'org.springframework.boot' version '2.0.4.RELEASE'
+    id 'java'
+}
+
+dependencies {
+    compile 'org.springframework.boot:spring-boot-starter-web:2.0.4.RELEASE'
+    testCompile("org.springframework.boot:spring-boot-starter-test:2.0.4.RELEASE") {
+        exclude group: 'junit', module: 'junit'
+    }
+    testCompile 'org.junit.jupiter:junit-jupiter-api:5.2.0'
+    testRuntime 'org.junit.jupiter:junit-jupiter-engine:5.2.0'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+repositories {
+    jcenter()
+}
+
+//jar {
+//    baseName = 'myproject'
+//    version =  '0.0.1-SNAPSHOT'
+//}
