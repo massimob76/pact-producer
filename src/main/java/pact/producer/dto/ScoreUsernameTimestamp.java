@@ -1,21 +1,16 @@
-package pact.producer.model;
-
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonValue;
+package pact.producer.dto;
 
 import java.time.Instant;
 
-public class Score {
+public class ScoreUsernameTimestamp {
 
     private final String name;
-    private final int value;
+    private final int score;
     private final Instant timestamp;
 
-    @JsonCreator
-    public Score(@JsonProperty("name") String name, @JsonProperty("value") int value, @JsonProperty("timestamp") Instant timestamp) {
+    public ScoreUsernameTimestamp(String name, int score, Instant timestamp) {
         this.name = name;
-        this.value = value;
+        this.score = score;
         this.timestamp = timestamp;
     }
 
@@ -23,8 +18,8 @@ public class Score {
         return name;
     }
 
-    public int getValue() {
-        return value;
+    public int getScore() {
+        return score;
     }
 
     public Instant getTimestamp() {
@@ -36,9 +31,9 @@ public class Score {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Score score = (Score) o;
+        ScoreUsernameTimestamp score = (ScoreUsernameTimestamp) o;
 
-        if (value != score.value) return false;
+        if (this.score != score.score) return false;
         if (name != null ? !name.equals(score.name) : score.name != null) return false;
         return timestamp != null ? timestamp.equals(score.timestamp) : score.timestamp == null;
     }
@@ -46,7 +41,7 @@ public class Score {
     @Override
     public int hashCode() {
         int result = name != null ? name.hashCode() : 0;
-        result = 31 * result + value;
+        result = 31 * result + score;
         result = 31 * result + (timestamp != null ? timestamp.hashCode() : 0);
         return result;
     }
@@ -55,7 +50,7 @@ public class Score {
     public String toString() {
         return "Score{" +
                 "name='" + name + '\'' +
-                ", value=" + value +
+                ", score=" + score +
                 ", timestamp=" + timestamp +
                 '}';
     }
