@@ -3,10 +3,14 @@ package pact.producer.dto;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Objects;
+import javax.validation.constraints.NotNull;
 
 public class ScoreUsername {
 
+    @NotNull
     private final String name;
+
+    @NotNull
     private final int score;
 
     @JsonCreator
