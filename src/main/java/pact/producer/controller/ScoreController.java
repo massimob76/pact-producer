@@ -2,7 +2,7 @@ package pact.producer.controller;
 
 import static org.springframework.http.HttpStatus.ACCEPTED;
 
-import java.util.List;
+import java.util.Collection;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -28,7 +28,7 @@ public class ScoreController {
     private ScoreHandler scoreHandler;
 
     @GetMapping
-    List<ScoreUsernameTimestamp> getAllScores() {
+    Collection<ScoreUsernameTimestamp> getAllScores() {
         return scoreHandler.getAllScores();
     }
 
